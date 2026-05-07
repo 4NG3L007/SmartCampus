@@ -1,0 +1,229 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: #5eead4;
+  color: #052e2b;
+  font-weight: 800;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small,
+.stack-box small {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.menu {
+  display: grid;
+  gap: 8px;
+}
+
+.menu-item {
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #dbe7f5;
+  cursor: pointer;
+  padding: 13px 14px;
+  text-align: left;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  background: var(--sidebar-soft);
+  color: #ffffff;
+}
+
+.stack-box {
+  margin-top: auto;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.section-label {
+  margin: 0 0 6px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.sprint-chip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: grid;
+  gap: 3px;
+  min-width: 230px;
+}
+
+.sprint-chip span,
+.panel-title span,
+.table-header span,
+.student-id span,
+.kpi-card span {
+  color: var(--muted);
+}
+
+.panel,
+.intro-panel,
+.login-panel,
+.student-card,
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.panel,
+.intro-panel,
+.login-panel,
+.student-card {
+  padding: 22px;
+}
+
+.panel-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.role-grid,
+.class-summary,
+.indicator-list {
+  display: grid;
+  gap: 14px;
+}
+
+.role-card,
+.scope-grid article,
+.class-summary article {
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.role-card {
+  cursor: pointer;
+  display: grid;
+  gap: 5px;
+  padding: 16px;
+  text-align: left;
+}
+
+.role-card:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.role-card span,
+.intro-panel p,
+.student-card p,
+.scope-grid p,
+.class-summary span {
+  color: var(--muted);
+}
+
+.scope-grid article,
+.class-summary article {
+  padding: 16px;
+}
+
+.select {
+  min-width: 320px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 10px 12px;
+}
+
+.tabbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 14px;
+}
+
+.tab {
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.tab.active {
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.attendance-select,
+.grade-input {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--surface);
+}
+
+.grade-input {
+  width: 88px;
+}
+
+.primary-action {
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 800;
+  margin-top: 16px;
+  padding: 12px 18px;
+}
+
+.status-ok {
+  color: var(--success);
+  font-weight: 800;
+}
+
+.status-risk {
+  color: var(--danger);
+  font-weight: 800;
+}
+
+.bar {
+  height: 13px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--surface-soft);
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--success);
+}

@@ -3,167 +3,257 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartCampus - Prototipo</title>
+    <title>SmartCampus - Gestion Academica</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <span class="brand-mark">SC</span>
-          <div>
-            <strong>SmartCampus</strong>
-            <small>Gestion academica</small>
-          </div>
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">SC</span>
+        <div>
+          <strong>SmartCampus</strong>
+          <small>Sistema de gestion academica</small>
         </div>
+      </div>
 
-        <nav class="nav" aria-label="Navegacion principal">
-          <button class="nav-item active" data-view="teacher">Docente</button>
-          <button class="nav-item" data-view="student">Estudiante</button>
-          <button class="nav-item" data-view="dashboard">Direccion</button>
-        </nav>
+      <nav class="menu" aria-label="Menu principal">
+        <button class="menu-item active" data-view="login">Inicio</button>
+        <button class="menu-item" data-view="docente">Docente</button>
+        <button class="menu-item" data-view="estudiante">Estudiante</button>
+        <button class="menu-item" data-view="direccion">Direccion</button>
+      </nav>
 
-        <div class="sidebar-status">
-          <span class="status-dot"></span>
-          Sprint 1 en progreso
+      <section class="stack-box">
+        <span>Stack propuesto</span>
+        <strong>HTML + CSS + JS</strong>
+        <small>Base simple para luego conectar Node, Express y PostgreSQL.</small>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="section-label">Avance frontend</p>
+          <h1 id="screen-title">Acceso por rol</h1>
         </div>
-      </aside>
+        <div class="sprint-chip">
+          <span>Sprint 1</span>
+          <strong>Flujo docente-estudiante</strong>
+        </div>
+      </header>
 
-      <main class="content">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">Prototipo frontend</p>
-            <h1 id="view-title">Panel docente</h1>
-          </div>
-          <div class="user-chip">
-            <span>Sebastian Rocha</span>
-            <strong>Frontend</strong>
-          </div>
-        </header>
+      <section id="login" class="screen active">
+        <div class="intro-grid">
+          <section class="intro-panel">
+            <p class="section-label">SmartCampus</p>
+            <h2>Gestion academica centralizada</h2>
+            <p>
+              Prototipo de escritorio basado en el documento del proyecto. El sistema organiza la
+              carga de asistencia, calificaciones y consulta de indicadores academicos.
+            </p>
+          </section>
 
-        <section id="teacher" class="view active">
-          <div class="summary-grid">
-            <article class="metric-card">
-              <span>Materias</span>
-              <strong>3</strong>
-            </article>
-            <article class="metric-card">
-              <span>Asistencia hoy</span>
-              <strong>86%</strong>
-            </article>
-            <article class="metric-card">
-              <span>Notas pendientes</span>
-              <strong>12</strong>
-            </article>
-          </div>
-
-          <div class="panel-grid">
-            <section class="panel">
-              <div class="panel-header">
-                <h2>Materias asignadas</h2>
-                <button class="icon-button" title="Actualizar">R</button>
-              </div>
-              <div id="course-list" class="course-list"></div>
-            </section>
-
-            <section class="panel">
-              <div class="panel-header">
-                <h2>Registro rapido</h2>
-                <span id="selected-course" class="tag">Programacion II</span>
-              </div>
-
-              <div class="tabs" role="tablist">
-                <button class="tab active" data-form="attendance">Asistencia</button>
-                <button class="tab" data-form="grades">Notas</button>
-              </div>
-
-              <div id="attendance-form" class="form-view active">
-                <div id="attendance-list" class="student-list"></div>
-                <button class="primary-button">Guardar asistencia</button>
-              </div>
-
-              <div id="grades-form" class="form-view">
-                <div id="grades-list" class="student-list"></div>
-                <button class="primary-button">Guardar notas</button>
-              </div>
-            </section>
-          </div>
-        </section>
-
-        <section id="student" class="view">
-          <div class="student-hero">
-            <div>
-              <p class="eyebrow">Vista estudiante</p>
-              <h2>Camila Rojas</h2>
-              <p>Resumen academico del semestre actual.</p>
-            </div>
-            <strong class="risk-badge">Estado normal</strong>
-          </div>
-
-          <div class="panel">
-            <div class="panel-header">
-              <h2>Mis materias</h2>
-              <span class="tag">Semestre 1/2026</span>
-            </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Materia</th>
-                    <th>Asistencia</th>
-                    <th>Promedio</th>
-                    <th>Estado</th>
-                  </tr>
-                </thead>
-                <tbody id="student-table"></tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        <section id="dashboard" class="view">
-          <div class="summary-grid">
-            <article class="metric-card">
-              <span>Promedio general</span>
-              <strong>78.4</strong>
-            </article>
-            <article class="metric-card">
-              <span>Estudiantes en riesgo</span>
-              <strong>18</strong>
-            </article>
-            <article class="metric-card">
-              <span>Asistencia promedio</span>
-              <strong>82%</strong>
-            </article>
-          </div>
-
-          <section class="panel">
-            <div class="panel-header">
-              <h2>KPIs academicos</h2>
-              <span class="tag">Datos simulados</span>
-            </div>
-            <div class="kpi-bars">
-              <div class="bar-row">
-                <span>Aprobacion</span>
-                <div class="bar"><span style="width: 74%"></span></div>
-                <strong>74%</strong>
-              </div>
-              <div class="bar-row">
-                <span>Asistencia</span>
-                <div class="bar"><span style="width: 82%"></span></div>
-                <strong>82%</strong>
-              </div>
-              <div class="bar-row">
-                <span>Riesgo bajo</span>
-                <div class="bar"><span style="width: 68%"></span></div>
-                <strong>68%</strong>
-              </div>
+          <section class="login-panel">
+            <h2>Seleccionar perfil</h2>
+            <div class="role-grid">
+              <button class="role-card" data-view="docente">
+                <strong>Docente</strong>
+                <span>Registrar asistencia y notas</span>
+              </button>
+              <button class="role-card" data-view="estudiante">
+                <strong>Estudiante</strong>
+                <span>Consultar materias y rendimiento</span>
+              </button>
+              <button class="role-card" data-view="direccion">
+                <strong>Direccion</strong>
+                <span>Revisar KPIs academicos</span>
+              </button>
             </div>
           </section>
-        </section>
-      </main>
-    </div>
+        </div>
 
+        <section class="panel">
+          <div class="panel-title">
+            <h2>Alcance del primer avance</h2>
+            <span>Datos simulados</span>
+          </div>
+          <div class="scope-grid">
+            <article>
+              <strong>Docente</strong>
+              <p>Seleccion de materia, lista de estudiantes, asistencia y carga de notas.</p>
+            </article>
+            <article>
+              <strong>Estudiante</strong>
+              <p>Consulta de asistencia, promedio y estado academico por materia.</p>
+            </article>
+            <article>
+              <strong>Direccion</strong>
+              <p>Indicadores tacticos: promedio general, asistencia y estudiantes en riesgo.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section id="docente" class="screen">
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="section-label">Docente</p>
+              <h2>Materias asignadas</h2>
+            </div>
+            <select id="course-select" class="select">
+              <option value="programacion">Programacion II - SIS-201</option>
+              <option value="basedatos">Base de Datos I - SIS-203</option>
+              <option value="software">Ingenieria de Software - SIS-301</option>
+            </select>
+          </div>
+
+          <div class="teacher-layout">
+            <div class="class-summary">
+              <article>
+                <span>Materia</span>
+                <strong id="course-name">Programacion II</strong>
+              </article>
+              <article>
+                <span>Grupo</span>
+                <strong id="course-group">SIS-201</strong>
+              </article>
+              <article>
+                <span>Horario</span>
+                <strong id="course-time">Lun/Mie 08:00</strong>
+              </article>
+            </div>
+
+            <div class="work-panel">
+              <div class="tabbar">
+                <button class="tab active" data-tab="asistencia">Asistencia</button>
+                <button class="tab" data-tab="notas">Notas</button>
+              </div>
+
+              <div id="asistencia" class="tab-screen active">
+                <div class="table-header">
+                  <strong>Registro de asistencia</strong>
+                  <span>Clase: 08/05/2026</span>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Codigo</th>
+                      <th>Estudiante</th>
+                      <th>Estado</th>
+                      <th>Observacion</th>
+                    </tr>
+                  </thead>
+                  <tbody id="attendance-body"></tbody>
+                </table>
+                <button class="primary-action">Guardar asistencia</button>
+              </div>
+
+              <div id="notas" class="tab-screen">
+                <div class="table-header">
+                  <strong>Carga de calificaciones</strong>
+                  <span>Evaluacion parcial</span>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Codigo</th>
+                      <th>Estudiante</th>
+                      <th>Nota</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="grades-body"></tbody>
+                </table>
+                <button class="primary-action">Guardar notas</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="estudiante" class="screen">
+        <section class="student-card">
+          <div>
+            <p class="section-label">Estudiante</p>
+            <h2>Resumen academico</h2>
+            <p>Consulta de materias inscritas, asistencia acumulada, promedio y estado.</p>
+          </div>
+          <div class="student-id">
+            <span>Codigo</span>
+            <strong>2024011</strong>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <h2>Materias inscritas</h2>
+            <span>Semestre 1/2026</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Materia</th>
+                <th>Docente</th>
+                <th>Asistencia</th>
+                <th>Promedio</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="student-summary"></tbody>
+          </table>
+        </section>
+      </section>
+
+      <section id="direccion" class="screen">
+        <div class="kpi-grid">
+          <article class="kpi-card">
+            <span>Promedio general</span>
+            <strong>78.4</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Asistencia promedio</span>
+            <strong>82%</strong>
+          </article>
+          <article class="kpi-card warning">
+            <span>Estudiantes en riesgo</span>
+            <strong>18</strong>
+          </article>
+        </div>
+
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="section-label">Direccion academica</p>
+              <h2>Indicadores clave de desempeno</h2>
+            </div>
+            <span>MIS tactico/estrategico</span>
+          </div>
+
+          <div class="indicator-list">
+            <div class="indicator">
+              <span>Aprobacion academica</span>
+              <div class="bar"><i style="width: 74%"></i></div>
+              <strong>74%</strong>
+            </div>
+            <div class="indicator">
+              <span>Asistencia institucional</span>
+              <div class="bar"><i style="width: 82%"></i></div>
+              <strong>82%</strong>
+            </div>
+            <div class="indicator">
+              <span>Estudiantes sin riesgo</span>
+              <div class="bar"><i style="width: 68%"></i></div>
+              <strong>68%</strong>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/render.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>
