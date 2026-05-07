@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartCampus - Prototipo</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">SC</span>
+          <div>
+            <strong>SmartCampus</strong>
+            <small>Gestion academica</small>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Navegacion principal">
+          <button class="nav-item active" data-view="teacher">Docente</button>
+          <button class="nav-item" data-view="student">Estudiante</button>
+          <button class="nav-item" data-view="dashboard">Direccion</button>
+        </nav>
+
+        <div class="sidebar-status">
+          <span class="status-dot"></span>
+          Sprint 1 en progreso
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Prototipo frontend</p>
+            <h1 id="view-title">Panel docente</h1>
+          </div>
+          <div class="user-chip">
+            <span>Sebastian Rocha</span>
+            <strong>Frontend</strong>
+          </div>
+        </header>
+
+        <section id="teacher" class="view active">
+          <div class="summary-grid">
+            <article class="metric-card">
+              <span>Materias</span>
+              <strong>3</strong>
+            </article>
+            <article class="metric-card">
+              <span>Asistencia hoy</span>
+              <strong>86%</strong>
+            </article>
+            <article class="metric-card">
+              <span>Notas pendientes</span>
+              <strong>12</strong>
+            </article>
+          </div>
+
+          <div class="panel-grid">
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Materias asignadas</h2>
+                <button class="icon-button" title="Actualizar">R</button>
+              </div>
+              <div id="course-list" class="course-list"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Registro rapido</h2>
+                <span id="selected-course" class="tag">Programacion II</span>
+              </div>
+
+              <div class="tabs" role="tablist">
+                <button class="tab active" data-form="attendance">Asistencia</button>
+                <button class="tab" data-form="grades">Notas</button>
+              </div>
+
+              <div id="attendance-form" class="form-view active">
+                <div id="attendance-list" class="student-list"></div>
+                <button class="primary-button">Guardar asistencia</button>
+              </div>
+
+              <div id="grades-form" class="form-view">
+                <div id="grades-list" class="student-list"></div>
+                <button class="primary-button">Guardar notas</button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="student" class="view">
+          <div class="student-hero">
+            <div>
+              <p class="eyebrow">Vista estudiante</p>
+              <h2>Camila Rojas</h2>
+              <p>Resumen academico del semestre actual.</p>
+            </div>
+            <strong class="risk-badge">Estado normal</strong>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Mis materias</h2>
+              <span class="tag">Semestre 1/2026</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Materia</th>
+                    <th>Asistencia</th>
+                    <th>Promedio</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="student-table"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="dashboard" class="view">
+          <div class="summary-grid">
+            <article class="metric-card">
+              <span>Promedio general</span>
+              <strong>78.4</strong>
+            </article>
+            <article class="metric-card">
+              <span>Estudiantes en riesgo</span>
+              <strong>18</strong>
+            </article>
+            <article class="metric-card">
+              <span>Asistencia promedio</span>
+              <strong>82%</strong>
+            </article>
+          </div>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>KPIs academicos</h2>
+              <span class="tag">Datos simulados</span>
+            </div>
+            <div class="kpi-bars">
+              <div class="bar-row">
+                <span>Aprobacion</span>
+                <div class="bar"><span style="width: 74%"></span></div>
+                <strong>74%</strong>
+              </div>
+              <div class="bar-row">
+                <span>Asistencia</span>
+                <div class="bar"><span style="width: 82%"></span></div>
+                <strong>82%</strong>
+              </div>
+              <div class="bar-row">
+                <span>Riesgo bajo</span>
+                <div class="bar"><span style="width: 68%"></span></div>
+                <strong>68%</strong>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
