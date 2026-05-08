@@ -3,200 +3,184 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartCampus - Gestion Academica</title>
+    <title>SmartCampus MIS - UNIFRANZ</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <aside class="sidebar">
+    <aside class="sidebar" id="app-sidebar">
       <div class="brand">
         <span class="brand-logo">SC</span>
         <div>
           <strong>SmartCampus</strong>
-          <small>Sistema de gestion academica</small>
+          <small>MIS academico - UNIFRANZ</small>
         </div>
       </div>
 
       <nav class="menu" aria-label="Menu principal">
-        <button class="menu-item active" data-view="login">Inicio</button>
-        <button class="menu-item" data-view="docente">Docente</button>
-        <button class="menu-item" data-view="estudiante">Estudiante</button>
-        <button class="menu-item" data-view="direccion">Direccion</button>
+        <button class="menu-item active" data-screen="login">Login</button>
+        <button class="menu-item" data-screen="panel-docente">Mis Materias</button>
+        <button class="menu-item" data-screen="registro-asistencia">Asistencia</button>
+        <button class="menu-item" data-screen="carga-notas">Notas</button>
+        <button class="menu-item" data-screen="panel-estudiante">Estudiante</button>
+        <button class="menu-item" data-screen="dashboard">Dashboard KPIs</button>
       </nav>
 
       <section class="stack-box">
-        <span>Stack propuesto</span>
-        <strong>HTML + CSS + JS</strong>
-        <small>Base simple para luego conectar Node, Express y PostgreSQL.</small>
+        <span>Modulos MIS</span>
+        <strong>Asistencia + Rendimiento</strong>
+        <small>Datos simulados listos para reemplazarse por API REST.</small>
       </section>
     </aside>
 
     <main class="main">
       <header class="topbar">
         <div>
-          <p class="section-label">Avance frontend</p>
-          <h1 id="screen-title">Acceso por rol</h1>
+          <p class="section-label">SmartCampus</p>
+          <h1 id="screen-title">Sistema de Informacion Gerencial</h1>
         </div>
         <div class="sprint-chip">
-          <span>Sprint 1</span>
-          <strong>Flujo docente-estudiante</strong>
+          <span>Avance actual</span>
+          <strong>Frontend de escritorio</strong>
         </div>
       </header>
 
-      <section id="login" class="screen active">
-        <div class="intro-grid">
-          <section class="intro-panel">
-            <p class="section-label">SmartCampus</p>
-            <h2>Gestion academica centralizada</h2>
-            <p>
-              Prototipo de escritorio basado en el documento del proyecto. El sistema organiza la
-              carga de asistencia, calificaciones y consulta de indicadores academicos.
-            </p>
-          </section>
+      <section id="login" class="screen active login-screen">
+        <div class="login-card">
+          <span class="login-logo">SC</span>
+          <h2>Ingreso al sistema</h2>
+          <p>Sistema de Informacion Gerencial - UNIFRANZ</p>
 
-          <section class="login-panel">
-            <h2>Seleccionar perfil</h2>
-            <div class="role-grid">
-              <button class="role-card" data-view="docente">
-                <strong>Docente</strong>
-                <span>Registrar asistencia y notas</span>
-              </button>
-              <button class="role-card" data-view="estudiante">
-                <strong>Estudiante</strong>
-                <span>Consultar materias y rendimiento</span>
-              </button>
-              <button class="role-card" data-view="direccion">
-                <strong>Direccion</strong>
-                <span>Revisar KPIs academicos</span>
-              </button>
-            </div>
-          </section>
+          <label class="field">
+            <span>Correo electronico</span>
+            <input id="correo" type="email" value="docente@unifranz.edu.bo" />
+          </label>
+
+          <label class="field">
+            <span>Contrasena</span>
+            <input id="contrasena" type="password" value="123456" />
+          </label>
+
+          <label class="field">
+            <span>Rol para demo</span>
+            <select id="rol-demo">
+              <option value="Docente">Docente</option>
+              <option value="Estudiante">Estudiante</option>
+              <option value="Direccion">Direccion</option>
+            </select>
+          </label>
+
+          <button id="btn-login" class="primary-action full">Ingresar</button>
+          <p id="error-login" class="form-error"></p>
         </div>
-
-        <section class="panel">
-          <div class="panel-title">
-            <h2>Alcance del primer avance</h2>
-            <span>Datos simulados</span>
-          </div>
-          <div class="scope-grid">
-            <article>
-              <strong>Docente</strong>
-              <p>Seleccion de materia, lista de estudiantes, asistencia y carga de notas.</p>
-            </article>
-            <article>
-              <strong>Estudiante</strong>
-              <p>Consulta de asistencia, promedio y estado academico por materia.</p>
-            </article>
-            <article>
-              <strong>Direccion</strong>
-              <p>Indicadores tacticos: promedio general, asistencia y estudiantes en riesgo.</p>
-            </article>
-          </div>
-        </section>
       </section>
 
-      <section id="docente" class="screen">
+      <section id="panel-docente" class="screen">
         <section class="panel">
           <div class="panel-title">
             <div>
               <p class="section-label">Docente</p>
-              <h2>Materias asignadas</h2>
+              <h2>Mis Materias</h2>
             </div>
-            <select id="course-select" class="select">
-              <option value="programacion">Programacion II - SIS-201</option>
-              <option value="basedatos">Base de Datos I - SIS-203</option>
-              <option value="software">Ingenieria de Software - SIS-301</option>
-            </select>
+            <span>GET /teacher/courses</span>
           </div>
-
-          <div class="teacher-layout">
-            <div class="class-summary">
-              <article>
-                <span>Materia</span>
-                <strong id="course-name">Programacion II</strong>
-              </article>
-              <article>
-                <span>Grupo</span>
-                <strong id="course-group">SIS-201</strong>
-              </article>
-              <article>
-                <span>Horario</span>
-                <strong id="course-time">Lun/Mie 08:00</strong>
-              </article>
-            </div>
-
-            <div class="work-panel">
-              <div class="tabbar">
-                <button class="tab active" data-tab="asistencia">Asistencia</button>
-                <button class="tab" data-tab="notas">Notas</button>
-              </div>
-
-              <div id="asistencia" class="tab-screen active">
-                <div class="table-header">
-                  <strong>Registro de asistencia</strong>
-                  <span>Clase: 08/05/2026</span>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Codigo</th>
-                      <th>Estudiante</th>
-                      <th>Estado</th>
-                      <th>Observacion</th>
-                    </tr>
-                  </thead>
-                  <tbody id="attendance-body"></tbody>
-                </table>
-                <button class="primary-action">Guardar asistencia</button>
-              </div>
-
-              <div id="notas" class="tab-screen">
-                <div class="table-header">
-                  <strong>Carga de calificaciones</strong>
-                  <span>Evaluacion parcial</span>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Codigo</th>
-                      <th>Estudiante</th>
-                      <th>Nota</th>
-                      <th>Estado</th>
-                    </tr>
-                  </thead>
-                  <tbody id="grades-body"></tbody>
-                </table>
-                <button class="primary-action">Guardar notas</button>
-              </div>
-            </div>
-          </div>
+          <div id="lista-materias" class="course-grid"></div>
         </section>
       </section>
 
-      <section id="estudiante" class="screen">
+      <section id="registro-asistencia" class="screen">
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="section-label">Modulo 1 - Asistencia Estudiantil</p>
+              <h2 id="attendance-course-title">Registro de Asistencia</h2>
+            </div>
+            <label class="date-field">
+              <span>Fecha</span>
+              <input id="attendance-date" type="date" />
+            </label>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Nro</th>
+                <th>Carnet</th>
+                <th>Nombre</th>
+                <th>Estado P/A/T</th>
+                <th>% Faltas</th>
+              </tr>
+            </thead>
+            <tbody id="attendance-body"></tbody>
+          </table>
+
+          <div class="action-row">
+            <button class="secondary-action" data-screen="panel-docente">Cancelar</button>
+            <button id="btn-save-attendance" class="primary-action">Guardar Asistencia</button>
+          </div>
+          <p id="attendance-message" class="success-message"></p>
+        </section>
+      </section>
+
+      <section id="carga-notas" class="screen">
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="section-label">Modulo 2 - Rendimiento Academico</p>
+              <h2 id="grades-course-title">Carga de Notas</h2>
+            </div>
+            <span>Gestion I-2025</span>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Nro</th>
+                <th>Carnet</th>
+                <th>Nombre</th>
+                <th>Parcial 1</th>
+                <th>Parcial 2</th>
+                <th>Final</th>
+                <th>Promedio</th>
+              </tr>
+            </thead>
+            <tbody id="grades-body"></tbody>
+          </table>
+
+          <div class="action-row">
+            <button class="secondary-action" data-screen="panel-docente">Cancelar</button>
+            <button id="btn-save-grades" class="primary-action">Guardar Notas</button>
+          </div>
+          <p id="grades-message" class="success-message"></p>
+        </section>
+      </section>
+
+      <section id="panel-estudiante" class="screen">
         <section class="student-card">
           <div>
             <p class="section-label">Estudiante</p>
-            <h2>Resumen academico</h2>
-            <p>Consulta de materias inscritas, asistencia acumulada, promedio y estado.</p>
+            <h2>Resumen Academico</h2>
+            <p>Carrera: Ingenieria de Sistemas | Semestre: 4</p>
           </div>
           <div class="student-id">
-            <span>Codigo</span>
-            <strong>2024011</strong>
+            <span>Carnet</span>
+            <strong>9854321</strong>
           </div>
         </section>
 
         <section class="panel">
           <div class="panel-title">
             <h2>Materias inscritas</h2>
-            <span>Semestre 1/2026</span>
+            <span>GET /student/summary</span>
           </div>
           <table>
             <thead>
               <tr>
                 <th>Materia</th>
-                <th>Docente</th>
-                <th>Asistencia</th>
+                <th>P1</th>
+                <th>P2</th>
+                <th>Final</th>
                 <th>Promedio</th>
+                <th>Asistencia</th>
                 <th>Estado</th>
               </tr>
             </thead>
@@ -205,53 +189,75 @@
         </section>
       </section>
 
-      <section id="direccion" class="screen">
+      <section id="dashboard" class="screen">
         <div class="kpi-grid">
           <article class="kpi-card">
-            <span>Promedio general</span>
-            <strong>78.4</strong>
-          </article>
-          <article class="kpi-card">
-            <span>Asistencia promedio</span>
-            <strong>82%</strong>
+            <span>Asistencia promedio global</span>
+            <strong id="kpi-asistencia">82%</strong>
           </article>
           <article class="kpi-card warning">
             <span>Estudiantes en riesgo</span>
-            <strong>18</strong>
+            <strong id="kpi-en-riesgo">18</strong>
+          </article>
+          <article class="kpi-card danger">
+            <span>Materias criticas</span>
+            <strong id="kpi-criticas">4</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Promedio general</span>
+            <strong id="kpi-promedio">74.6</strong>
           </article>
         </div>
 
+        <section class="dashboard-grid">
+          <article class="panel">
+            <div class="panel-title">
+              <h2>Estudiantes en riesgo por faltas</h2>
+              <span>Mas del 25% de faltas</span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Carnet</th>
+                  <th>Nombre</th>
+                  <th>Materia</th>
+                  <th>% Faltas</th>
+                </tr>
+              </thead>
+              <tbody id="risk-body"></tbody>
+            </table>
+          </article>
+
+          <article class="panel">
+            <div class="panel-title">
+              <h2>Materias criticas</h2>
+              <span>Mas del 40% reprobados</span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Materia</th>
+                  <th>Carrera</th>
+                  <th>% Reprobados</th>
+                </tr>
+              </thead>
+              <tbody id="critical-body"></tbody>
+            </table>
+          </article>
+        </section>
+
         <section class="panel">
           <div class="panel-title">
-            <div>
-              <p class="section-label">Direccion academica</p>
-              <h2>Indicadores clave de desempeno</h2>
-            </div>
-            <span>MIS tactico/estrategico</span>
+            <h2>Comparativa historica por gestion</h2>
+            <span>I-2024 a II-2025</span>
           </div>
-
-          <div class="indicator-list">
-            <div class="indicator">
-              <span>Aprobacion academica</span>
-              <div class="bar"><i style="width: 74%"></i></div>
-              <strong>74%</strong>
-            </div>
-            <div class="indicator">
-              <span>Asistencia institucional</span>
-              <div class="bar"><i style="width: 82%"></i></div>
-              <strong>82%</strong>
-            </div>
-            <div class="indicator">
-              <span>Estudiantes sin riesgo</span>
-              <div class="bar"><i style="width: 68%"></i></div>
-              <strong>68%</strong>
-            </div>
-          </div>
+          <div id="history-bars" class="history-bars"></div>
         </section>
       </section>
     </main>
 
     <script src="./js/data.js"></script>
+    <script src="./js/api.js"></script>
     <script src="./js/navigation.js"></script>
     <script src="./js/render.js"></script>
     <script src="./js/app.js"></script>

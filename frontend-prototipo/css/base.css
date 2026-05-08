@@ -1,18 +1,19 @@
 :root {
-  --bg: #eef2f6;
-  --sidebar: #152033;
-  --sidebar-soft: #21304a;
+  --bg: #eef3f8;
+  --sidebar: #10233f;
+  --sidebar-soft: #1a355d;
   --surface: #ffffff;
-  --surface-soft: #f6f8fb;
+  --surface-soft: #f5f8fb;
   --text: #172033;
-  --muted: #65758b;
-  --line: #d8e0ea;
+  --muted: #627187;
+  --line: #d8e2ed;
   --primary: #1f6feb;
+  --primary-dark: #174ea6;
   --primary-soft: #e8f1ff;
   --success: #138a5b;
-  --danger: #c2413b;
   --warning: #b7791f;
-  --shadow: 0 14px 34px rgba(21, 32, 51, 0.1);
+  --danger: #c2413b;
+  --shadow: 0 14px 34px rgba(16, 35, 63, 0.1);
 }
 
 * {
@@ -21,7 +22,7 @@
 
 body {
   margin: 0;
-  min-width: 1180px;
+  min-width: 1280px;
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
@@ -36,20 +37,29 @@ select {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 h1,
 h2,
+h3,
 p {
   margin-top: 0;
 }
 
 h1 {
   margin-bottom: 0;
-  font-size: 32px;
+  font-size: 31px;
 }
 
 h2 {
   margin-bottom: 0;
   font-size: 20px;
+}
+
+h3 {
+  margin-bottom: 8px;
 }
 
 table {

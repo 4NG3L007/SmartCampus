@@ -5,7 +5,7 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 28px;
 }
 
 .main {
@@ -20,33 +20,45 @@
   margin-bottom: 24px;
 }
 
-.intro-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 20px;
+.login-screen {
+  min-height: calc(100vh - 130px);
+  place-items: center;
 }
 
-.scope-grid {
+.course-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.teacher-layout {
-  display: grid;
-  grid-template-columns: 270px 1fr;
-  gap: 18px;
+.course-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.action-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
-.indicator {
+.dashboard-grid {
   display: grid;
-  grid-template-columns: 220px 1fr 60px;
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 52px;
   align-items: center;
+  gap: 12px;
 }

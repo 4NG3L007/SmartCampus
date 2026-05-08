@@ -1,24 +1,23 @@
 # SmartCampus - Prototipo frontend
 
-Prototipo frontend de escritorio para el sistema SmartCampus, una plataforma web de gestion academica.
+Prototipo frontend de escritorio para SmartCampus, Sistema de Informacion Gerencial (MIS) orientado a los modulos de Asistencia Estudiantil y Rendimiento Academico.
 
 ## Objetivo
 
-Representar el flujo principal del sistema academico:
+Representar las pantallas definidas en el documento completo:
 
-- Acceso por rol.
+- Login.
 - Panel docente.
 - Registro de asistencia.
-- Carga de calificaciones.
+- Carga de notas.
 - Panel estudiante.
-- Consulta de asistencia, promedio y estado academico.
-- Dashboard basico de direccion con KPIs simulados.
+- Dashboard KPIs para direccion.
 
 ## Tecnologias usadas
 
-- HTML5 para la estructura de las pantallas.
-- CSS3 para el diseno visual.
-- JavaScript para la navegacion, tabs y datos simulados.
+- HTML5 para la estructura.
+- CSS3 para la interfaz visual.
+- JavaScript para navegacion, datos simulados y renderizado.
 
 ## Estructura
 
@@ -26,16 +25,17 @@ Representar el flujo principal del sistema academico:
 frontend-prototipo/
   index.html
   css/
+    styles.css
     base.css
     layout.css
     components.css
     screens.css
-    styles.css
   js/
+    app.js
+    api.js
     data.js
     navigation.js
     render.js
-    app.js
 ```
 
 ## Organizacion de archivos
@@ -43,18 +43,24 @@ frontend-prototipo/
 - `index.html`: estructura de las pantallas.
 - `css/base.css`: variables, reset y estilos generales.
 - `css/layout.css`: distribucion principal, sidebar, grillas y columnas.
-- `css/components.css`: botones, tarjetas, tablas, tabs y elementos reutilizables.
-- `css/screens.css`: ajustes especificos de cada pantalla.
-- `css/styles.css`: archivo principal que importa los estilos.
-- `js/data.js`: datos simulados de materias y estudiantes.
-- `js/navigation.js`: cambio de pantallas, tabs y seleccion de materia.
-- `js/render.js`: renderizado de asistencia, notas y resumen del estudiante.
+- `css/components.css`: botones, tarjetas, tablas y formularios.
+- `css/screens.css`: ajustes especificos de pantallas.
+- `css/styles.css`: archivo principal que importa todos los estilos.
+- `js/data.js`: datos simulados de materias, estudiantes y dashboard.
+- `js/api.js`: funciones `apiGet` y `apiPost` para conectar luego con backend.
+- `js/navigation.js`: cambio de pantallas y seleccion de materia.
+- `js/render.js`: renderizado de materias, asistencia, notas, estudiante y dashboard.
 - `js/app.js`: inicializacion de la aplicacion.
 
 ## Como abrirlo
 
 Abrir `index.html` en el navegador. No necesita instalacion ni servidor.
 
-## Nota
+## Preparado para integracion
 
-Este prototipo usa datos simulados para poder mostrar el avance frontend mientras el backend y la base de datos se desarrollan.
+El archivo `api.js` ya contiene la estructura para consumir endpoints con token JWT:
+
+- `apiGet(url)`
+- `apiPost(url, data)`
+
+Cuando el backend este listo, se reemplazaran los datos simulados por endpoints reales.

@@ -1,12 +1,14 @@
 # SmartCampus
 
-SmartCampus es una plataforma web de gestion academica para instituciones educativas. El sistema permite registrar asistencia, cargar notas, consultar informacion academica y visualizar indicadores basicos para apoyar la toma de decisiones.
+SmartCampus es un Sistema de Informacion Gerencial (MIS) para gestion academica universitaria. El proyecto se enfoca en dos modulos principales: **Asistencia Estudiantil** y **Rendimiento Academico**.
 
-Proyecto desarrollado como avance academico por el equipo SmartCampus — Cochabamba, Bolivia.
+El objetivo es centralizar el registro de asistencia y notas para generar reportes estrategicos que ayuden a la direccion universitaria a tomar decisiones.
+
+Proyecto desarrollado como avance academico por el equipo SmartCampus - UNIFRANZ Cochabamba, Bolivia.
 
 ## Requisitos previos
 
-Todos los integrantes deben tener instaladas las herramientas necesarias para poder ejecutar, revisar y modificar el proyecto.
+Todos los integrantes deben tener instaladas las herramientas necesarias para ejecutar, revisar y modificar el proyecto.
 
 - Node.js v20 o superior
 - npm
@@ -40,7 +42,7 @@ code .
 
 ### 3. Ejecutar el prototipo frontend actual
 
-El avance actual esta desarrollado con HTML, CSS y JavaScript, por lo que no necesita instalar dependencias.
+El avance actual esta desarrollado con HTML, CSS y JavaScript. No necesita instalar dependencias.
 
 Abrir en el navegador:
 
@@ -48,144 +50,73 @@ Abrir en el navegador:
 frontend-prototipo/index.html
 ```
 
-Tambien se puede abrir el archivo directamente desde el explorador de archivos.
-
-## Instalacion futura del backend
-
-Cuando se cree la carpeta del backend, se podra instalar con:
-
-```bash
-cd backend
-npm install
-```
-
-Si el backend se inicia desde cero:
-
-```bash
-mkdir backend
-cd backend
-npm init -y
-npm install express cors dotenv pg
-npm install --save-dev nodemon
-```
-
-## Variables de entorno futuras
-
-Cuando el backend este implementado, se debe crear un archivo `.env` en la carpeta correspondiente.
-
-Ejemplo:
-
-```env
-PORT=3000
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=smartcampus
-DB_USER=postgres
-DB_PASSWORD=tu_password
-```
-
-Las credenciales reales no deben subirse a GitHub.
-
-## Levantar el backend futuro
-
-Cuando exista backend, el comando sugerido sera:
-
-```bash
-npm run dev
-```
-
-El servidor podria abrirse en:
-
-```text
-http://localhost:3000
-```
-
 ## Stack tecnologico
 
-| Categoria | Tecnologia |
-| --- | --- |
-| Estructura frontend | HTML5 |
-| Estilos | CSS3 |
-| Interactividad | JavaScript |
-| Backend | Node.js + Express |
-| Base de datos | PostgreSQL |
-| Control de versiones | Git + GitHub |
-| Pruebas de API | Postman o Thunder Client |
-| Editor recomendado | Visual Studio Code |
+| Categoria | Tecnologia | Uso |
+| --- | --- | --- |
+| Frontend | HTML5 + CSS3 + JavaScript | Pantallas, estilos, navegacion y datos simulados |
+| Backend | Node.js + Express | API REST para gestion de datos |
+| Base de datos | PostgreSQL | Usuarios, materias, asistencia y notas |
+| Control de versiones | Git + GitHub | Trabajo colaborativo |
+| Pruebas API | Postman o Thunder Client | Verificacion de endpoints |
 
-## Estructura del proyecto
+## Estructura actual del proyecto
 
 ```text
 SmartCampus/
-├── README.md
-├── docs/
-│   ├── 01-caso-estudio-metodologia-hibrida-sebastian.md
-│   ├── 02-metodologia-equipo-y-diagramas-smartcampus.md
-│   ├── 03-entrega-individual-sebastian-frontend.md
-│   ├── 04-checklist-entrega-viernes.md
-│   └── plan-avance-smartcampus.md
-└── frontend-prototipo/
-    ├── README.md
-    ├── index.html
-    ├── css/
-    │   └── styles.css
-    └── js/
-        └── app.js
+  README.md
+  frontend-prototipo/
+    README.md
+    index.html
+    css/
+      styles.css
+      base.css
+      layout.css
+      components.css
+      screens.css
+    js/
+      app.js
+      api.js
+      data.js
+      navigation.js
+      render.js
 ```
 
-## Funcionalidades principales
+## Modulos del sistema MIS
 
-### Docente
+### Modulo 1 - Asistencia Estudiantil
 
-- Ver materias asignadas.
-- Registrar asistencia.
-- Cargar notas.
-- Revisar estudiantes con bajo rendimiento.
+Permite registrar y analizar la asistencia de estudiantes por materia y fecha.
 
-### Estudiante
+Reportes esperados:
 
-- Ver materias inscritas.
-- Consultar notas.
-- Consultar asistencia.
-- Ver estado academico.
+- Porcentaje de asistencia por estudiante, materia y carrera.
+- Estudiantes en riesgo con mas del 25% de faltas.
+- Materias con mayor indice de inasistencia.
+- Tendencia semanal y mensual de asistencia.
 
-### Direccion
+### Modulo 2 - Rendimiento Academico
 
-- Ver indicadores academicos.
-- Consultar promedio general.
-- Revisar asistencia promedio.
-- Identificar estudiantes en riesgo.
+Permite centralizar notas y generar analisis academicos.
 
-## Funcionalidad desarrollada en el avance actual
+Reportes esperados:
 
-El avance actual corresponde al prototipo frontend de escritorio.
+- Promedio general por carrera y gestion.
+- Materias con mayor porcentaje de reprobados.
+- Comparativa entre gestiones academicas.
+- Top de mejores estudiantes por carrera.
+- Estudiantes con bajo rendimiento, menor a 51 puntos.
 
-Incluye:
+## Roles del sistema
 
-- Panel docente.
-- Listado de materias.
-- Registro visual de asistencia.
-- Carga visual de notas.
-- Panel estudiante.
-- Tabla de materias, asistencia, promedio y estado.
-- Dashboard basico con KPIs simulados.
-
-## Metodologia de desarrollo
-
-La metodologia elegida para el proyecto es **Scrumban**, una metodologia hibrida que combina Scrum y Kanban.
-
-Se usa Scrum para organizar el trabajo por sprint y Kanban para visualizar el estado de las tareas.
-
-Estados del tablero:
-
-- Por hacer
-- En progreso
-- En pruebas
-- Terminado
+| Rol | Acceso | Funciones principales |
+| --- | --- | --- |
+| Administrador | Total | Gestionar usuarios, carreras, materias y gestiones academicas |
+| Docente | Entrada de datos | Registrar asistencia y cargar notas por parcial |
+| Estudiante | Personal | Consultar asistencia, notas y estado academico |
+| Direccion | Solo lectura | Ver dashboard, KPIs y reportes academicos |
 
 ## Equipo
-
-Luis Hurtado ya no participa en el proyecto, por lo que sus responsabilidades fueron reasignadas.
 
 | Integrante | Area |
 | --- | --- |
@@ -198,14 +129,30 @@ Luis Hurtado ya no participa en el proyecto, por lo que sus responsabilidades fu
 
 | Integrante | Responsabilidad |
 | --- | --- |
-| Camila Lorena Lara | Historias de usuario, prioridades, tablero Kanban y seguimiento del equipo |
-| Leandro Rosales | Base de datos, endpoints y logica de asistencia/notas |
-| Sebastian Rocha | Pantallas frontend, navegacion, estilos y prototipo visual |
+| Camila Lorena Lara | Historias de usuario, prioridades del backlog, tablero Kanban y seguimiento |
+| Leandro Rosales | Base de datos, endpoints API y logica de asistencia/notas |
+| Sebastian Rocha | Pantallas frontend, navegacion, estilos CSS y prototipo visual |
 | Isael Patrick Ramos | Pruebas, checklist de errores y propuesta de despliegue |
+
+## Funcionalidad desarrollada en el avance actual
+
+El avance actual corresponde al prototipo frontend de escritorio basado en los wireframes del documento completo.
+
+Incluye:
+
+- Login con correo, contrasena y seleccion de rol para demo.
+- Panel docente con tarjetas de materias.
+- Registro de asistencia por fecha con estados P/A/T.
+- Carga de notas con Parcial 1, Parcial 2, Final y promedio calculado.
+- Panel estudiante con promedio, asistencia y estado academico.
+- Dashboard de direccion con 4 KPIs.
+- Tabla de estudiantes en riesgo por faltas.
+- Tabla de materias criticas.
+- Comparativa historica por gestion.
 
 ## Endpoints propuestos
 
-Cuando el backend este implementado, el frontend necesitara consumir estos endpoints:
+Cuando el backend este implementado, el frontend consumira:
 
 ```text
 POST /auth/login
@@ -217,38 +164,49 @@ GET /student/summary
 GET /dashboard/kpis
 ```
 
-## Base de datos propuesta
+## Instalacion futura del backend
 
-Tablas principales:
+```bash
+mkdir backend
+cd backend
+npm init -y
+npm install express cors pg dotenv bcrypt jsonwebtoken
+npm install --save-dev nodemon
+```
 
-- usuario
-- docente
-- estudiante
-- materia
-- inscripcion
-- asistencia
-- nota
-- rol
+Estructura backend sugerida:
 
-## Seguridad
+```text
+backend/
+  index.js
+  .env
+  .env.example
+  db/
+    connection.js
+  middleware/
+    auth.js
+  routes/
+    auth.js
+    teacher.js
+    student.js
+    dashboard.js
+```
 
-- Las credenciales deben manejarse mediante variables de entorno.
-- El archivo `.env` no debe subirse a GitHub.
-- El sistema debe manejar autenticacion por roles.
-- Las rutas futuras deben protegerse segun el tipo de usuario.
+## Variables de entorno futuras
 
-## Extensiones recomendadas para VS Code
+```env
+PORT=3000
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=smartcampus
+DB_USER=postgres
+DB_PASSWORD=tu_password
+JWT_SECRET=clave_secreta
+```
 
-- Prettier
-- Live Server
-- GitLens
-- JavaScript ES6 Code Snippets
-- HTML CSS Support
-- Thunder Client
+El archivo `.env` nunca debe subirse a GitHub.
 
 ## Scripts futuros
-
-Cuando exista backend con Node.js, se podran usar scripts como:
 
 ```bash
 npm run dev       # Servidor de desarrollo
@@ -259,11 +217,11 @@ npm run start     # Ejecutar servidor
 
 - Prototipo frontend de escritorio creado.
 - Estructura separada en HTML, CSS y JavaScript.
-- Documentacion inicial agregada.
-- Roles del equipo actualizados.
+- Pantallas alineadas al documento completo.
+- Roles del equipo definidos.
 - Metodologia Scrumban definida.
-- Diagramas y entrega individual documentados.
+- Frontend preparado para integracion futura con backend.
 
 ## Nota importante
 
-El frontend trabaja actualmente con datos simulados. Esto permite mostrar avances funcionales mientras el backend y la base de datos se desarrollan.
+El frontend trabaja actualmente con datos simulados en `js/data.js`. Para la integracion real, esos datos se reemplazaran por llamadas a la API usando `js/api.js`.

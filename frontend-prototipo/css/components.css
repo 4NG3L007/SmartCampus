@@ -4,15 +4,25 @@
   gap: 12px;
 }
 
-.brand-logo {
-  width: 48px;
-  height: 48px;
+.brand-logo,
+.login-logo {
   border-radius: 8px;
   display: grid;
   place-items: center;
   background: #5eead4;
   color: #052e2b;
   font-weight: 800;
+}
+
+.brand-logo {
+  width: 48px;
+  height: 48px;
+}
+
+.login-logo {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 14px;
 }
 
 .brand strong,
@@ -36,7 +46,6 @@
   border-radius: 8px;
   background: transparent;
   color: #dbe7f5;
-  cursor: pointer;
   padding: 13px 14px;
   text-align: left;
 }
@@ -77,17 +86,19 @@
 
 .sprint-chip span,
 .panel-title span,
-.table-header span,
 .student-id span,
-.kpi-card span {
+.kpi-card span,
+.course-meta,
+.field span,
+.date-field span {
   color: var(--muted);
 }
 
 .panel,
-.intro-panel,
-.login-panel,
 .student-card,
-.kpi-card {
+.kpi-card,
+.login-card,
+.course-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -95,10 +106,40 @@
 }
 
 .panel,
-.intro-panel,
-.login-panel,
-.student-card {
+.student-card,
+.course-card {
   padding: 22px;
+}
+
+.login-card {
+  width: 420px;
+  padding: 28px;
+  text-align: center;
+}
+
+.login-card p {
+  color: var(--muted);
+}
+
+.field,
+.date-field {
+  display: grid;
+  gap: 7px;
+  text-align: left;
+}
+
+.field {
+  margin-top: 14px;
+}
+
+.field input,
+.field select,
+.date-field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 11px 12px;
+  background: var(--surface);
 }
 
 .panel-title {
@@ -109,104 +150,85 @@
   margin-bottom: 18px;
 }
 
-.role-grid,
-.class-summary,
-.indicator-list {
-  display: grid;
-  gap: 14px;
+.course-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 190px;
 }
 
-.role-card,
-.scope-grid article,
-.class-summary article {
-  background: var(--surface-soft);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.role-card {
-  cursor: pointer;
-  display: grid;
-  gap: 5px;
-  padding: 16px;
-  text-align: left;
-}
-
-.role-card:hover {
-  border-color: var(--primary);
-  background: var(--primary-soft);
-}
-
-.role-card span,
-.intro-panel p,
-.student-card p,
-.scope-grid p,
-.class-summary span {
+.course-card p {
   color: var(--muted);
+  margin-bottom: 0;
 }
 
-.scope-grid article,
-.class-summary article {
-  padding: 16px;
-}
-
-.select {
-  min-width: 320px;
-  border: 1px solid var(--line);
+.primary-action,
+.secondary-action {
+  border: 0;
   border-radius: 8px;
-  background: var(--surface);
-  padding: 10px 12px;
+  font-weight: 800;
+  padding: 11px 15px;
 }
 
-.tabbar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.primary-action {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.primary-action:hover {
+  background: var(--primary-dark);
+}
+
+.primary-action.full {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.secondary-action {
   background: var(--surface-soft);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 4px;
-  margin-bottom: 14px;
+  color: var(--text);
 }
 
-.tab {
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.tab.active {
-  background: var(--surface);
-  color: var(--primary);
-  font-weight: 800;
-}
-
-.attendance-select,
 .grade-input {
+  width: 76px;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 8px;
   background: var(--surface);
 }
 
-.grade-input {
-  width: 88px;
+.pat-options {
+  display: flex;
+  gap: 10px;
 }
 
-.primary-action {
-  border: 0;
-  border-radius: 8px;
-  background: var(--primary);
-  color: #ffffff;
-  cursor: pointer;
-  font-weight: 800;
-  margin-top: 16px;
-  padding: 12px 18px;
+.pat-options label {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.form-error {
+  min-height: 18px;
+  color: var(--danger);
+  font-weight: 700;
+  margin: 10px 0 0;
+}
+
+.success-message {
+  color: var(--success);
+  font-weight: 700;
+  margin: 12px 0 0;
 }
 
 .status-ok {
   color: var(--success);
+  font-weight: 800;
+}
+
+.status-warning {
+  color: var(--warning);
   font-weight: 800;
 }
 
@@ -225,5 +247,5 @@
 .bar i {
   display: block;
   height: 100%;
-  background: var(--success);
+  background: var(--primary);
 }
